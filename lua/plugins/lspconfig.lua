@@ -41,7 +41,15 @@ return {
             "gr",
             false,
         }
+        keys[#keys + 1] = {
+            "<leader>ca",
+            '<cmd>lua require("tiny-code-action").code_action()<CR>',
+            desc = "Code Action",
+        }
     end,
+    dependencies = {
+        "rachartier/tiny-code-action.nvim",
+    },
     opts = {
         servers = {
             templ = {
