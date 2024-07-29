@@ -4,7 +4,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    enabled = vim.fn.exepath("lazygit") ~= "",
+    enabled = false,
     keys = {
         { "<leader>z", "<cmd>LazyGit<cr>", desc = "Symbols Outline" },
     },
