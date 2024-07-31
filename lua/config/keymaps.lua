@@ -6,10 +6,6 @@ require "config.neovide"
 
 vim.keymap.set("t", "<c-d>", "<C-\\><C-n>", { silent = true, desc = "Exit Terminal Mode" })
 
--- LazyVim hardcode tabs to jump snippet completions. Very fucking annoying.
-vim.keymap.del({ "i" }, "<tab>")
-vim.keymap.del({ "i" }, "<s-tab>")
-
 vim.keymap.set(
     "n",
     "<leader>z",
