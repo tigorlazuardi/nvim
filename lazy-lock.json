@@ -29,6 +29,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "f074844b60f9e151970fbcdbeb8a2cd52b6ef25a" },
   "goimpl.nvim": { "branch": "main", "commit": "a0a16a397b652bb5162751c808d810465a028f1e" },
   "gopher.nvim": { "branch": "main", "commit": "f55c15ada8e02398000c04a96ef44d986cd01051" },
+  "goplements.nvim": { "branch": "main", "commit": "a3291c4db092d5bc95ec0e6e2bcfc14587d06dfc" },
   "grug-far.nvim": { "branch": "main", "commit": "4e18623ec055273e7c2e925e644a5dbba89b509e" },
   "harpoon": { "branch": "harpoon2", "commit": "0378a6c428a0bed6a2781d459d7943843f374bce" },
   "incline.nvim": { "branch": "main", "commit": "16fc9c073e3ea4175b66ad94375df6d73fc114c0" },
