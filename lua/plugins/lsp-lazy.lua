@@ -2,7 +2,12 @@ return {
     "dundalek/lazy-lsp.nvim",
     dependencies = { "neovim/nvim-lspconfig" },
     opts = {
-        excluded_servers = { "jdtls", "gopls", "tsserver" },
+        prefer_local = true,
+        preferred_servers = {
+            nix = {
+                "nil_ls",
+            },
+        },
     },
-    enabled = false,
+    -- enabled = false,
 }

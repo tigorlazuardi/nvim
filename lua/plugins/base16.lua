@@ -1,6 +1,7 @@
 return {
     {
         "rktjmp/fwatch.nvim",
+        enabled = false,
         dependencies = {
             "xiyaowong/transparent.nvim", -- For Transparency support
             { "echasnovski/mini.nvim", version = false },
@@ -66,5 +67,6 @@ return {
         "brenoprata10/nvim-highlight-colors",
         opts = {},
         event = "VeryLazy",
+        enabled = false,
     },
 }

@@ -56,6 +56,9 @@ return {
                     client.server_capabilities.documentRangeFormattingProvider = false
                 end,
             },
+            lua_ls = {
+                mason = false;
+            };
         },
     },
 }
