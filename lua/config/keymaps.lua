@@ -9,6 +9,23 @@ vim.keymap.set("t", "<c-d>", "<C-\\><C-n>", { silent = true, desc = "Exit Termin
 vim.keymap.set(
     "n",
     "<leader>z",
-    "<cmd>silent !wezterm start --class lazygit --cwd . -- lazygit<cr>",
+    function()
+        local cwd = vim.fn.expand "%:p:h"
+        vim.system {
+            "hyprctl",
+            "dispatch",
+            "exec",
+            "--",
+            "foot",
+            "--app-id=lazygit",
+            "--title=lazygit",
+            "--working-directory=" .. cwd,
+            "--",
+            "lazygit",
+        }
+    end,
+    -- [[<cmd>silent !foot --app-id=lazygit --working-directory=. -- lazygit<cr>]],
     { desc = "Open Lazygit" }
 )
+
+vim.keymap.set("n", "<F5>", [[<cmd>silent !footclient --no-wait<cr>]], { desc = "Open New terminal" })

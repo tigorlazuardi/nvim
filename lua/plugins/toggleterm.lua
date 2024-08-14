@@ -1,4 +1,5 @@
 return {
+    enabled = false,
     "akinsho/toggleterm.nvim",
     keys = {
         { "<F5>", "Open Toggleterm" },
