@@ -16,6 +16,9 @@ return {
         opts = function(_, opts)
             local cmp = require "cmp"
             table.insert(opts.sources, 3, { name = "async_path" })
+            opts.window = {
+                completion = cmp.config.window.bordered(),
+            }
 
             if vim.fn.exepath "rg" ~= "" then
                 table.insert(opts.sources, 4, { name = "rg" })
