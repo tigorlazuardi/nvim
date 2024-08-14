@@ -15,6 +15,7 @@ return {
                 gopls = {
                     settings = {
                         gopls = {
+                            staticcheck = false,
                             analyses = {
                                 fieldalignment = false,
                             },
