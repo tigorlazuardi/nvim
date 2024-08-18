@@ -9,7 +9,7 @@ return {
             vim.env.GIT_EDITOR = [[nvr -cc split --remote-wait +'set bufhidden=wipe']]
         end
     end,
-    enabled = false,
+    enabled = (not vim.fn.executable "zellij" == 1) and (not vim.fn.executable "footclient" == 1),
     keys = {
         { "<leader>z", "<cmd>LazyGit<cr>", desc = "Symbols Outline" },
     },
