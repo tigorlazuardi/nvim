@@ -10,6 +10,6 @@ if vim.fn.executable "lazygit" == 1 then
     require "config.lazygit"
 end
 
-if vim.fn.executable "hyprctl" == 1 and vim.fn.executable "footclient" == 1 then
+if vim.env.HYPRLAND_INSTANCE_SIGNATURE ~= nil and vim.fn.executable "footclient" == 1 then
     require "config.terminal"
 end

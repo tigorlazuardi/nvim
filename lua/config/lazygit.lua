@@ -13,7 +13,7 @@ if vim.env.ZELLIJ ~= nil and not vim.g.neovide then
             "lazygit",
         }
     end, { desc = "Open Lazygit (Zellij)" })
-elseif vim.fn.executable "hyprctl" == 1 and vim.fn.executable "foot" == 1 then
+elseif vim.env.HYPRLAND_INSTANCE_SIGNATURE ~= nil and vim.fn.executable "foot" == 1 then
     vim.keymap.set("n", "<leader>z", function()
         vim.system {
             "hyprctl",
