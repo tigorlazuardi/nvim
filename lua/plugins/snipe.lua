@@ -10,4 +10,5 @@ return {
         },
     },
     opts = {},
+    enabled = false,
 }
