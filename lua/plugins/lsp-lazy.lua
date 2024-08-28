@@ -12,6 +12,9 @@ return {
             nix = {
                 "nil_ls",
             },
+            typescript = {
+                "tsserver",
+            },
             proto = {
                 "buf-language-server",
             },
