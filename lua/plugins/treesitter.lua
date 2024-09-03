@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        commit = "8ce94cb53741c5038ceac239372cafd16c8b5a85",
         dependencies = {
             "RRethy/nvim-treesitter-endwise",
         },
