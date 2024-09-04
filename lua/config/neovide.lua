@@ -2,7 +2,7 @@ if not vim.g.neovide then
     return
 end
 
-local font = "JetBrainsMono Nerd Font Mono"
+local font = "JetBrainsMono Nerd Font"
 
 local font_size = vim.o.lines < 60 and 11 or 12
 
