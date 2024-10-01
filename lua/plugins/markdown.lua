@@ -8,30 +8,36 @@ return {
         end,
     },
     {
-        "toppair/peek.nvim",
+        "brianhuster/live-preview.nvim",
+        cmd = { "LivePreview" },
         ft = { "markdown" },
-        cmd = { "Peek" },
-        build = "deno task --quiet build:fast",
-        opts = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                desc = "Create peek command on markdown ft",
-                pattern = "markdown",
-                callback = function(ev)
-                    vim.api.nvim_buf_create_user_command(ev.buf, "Peek", function(ctx)
-                        local peek = require "peek"
-                        if peek.is_open() then
-                            if ctx.bang then
-                                peek.close()
-                            end
-                            return
-                        end
-                        peek.open()
-                    end, { bang = true })
-                end,
-            })
-            return {
-                app = { "chromium", "--new-window" },
-            }
-        end,
+        config = true,
     },
+    -- {
+    --     "toppair/peek.nvim",
+    --     ft = { "markdown" },
+    --     cmd = { "Peek" },
+    --     build = "deno task --quiet build:fast",
+    --     opts = function()
+    --         vim.api.nvim_create_autocmd("FileType", {
+    --             desc = "Create peek command on markdown ft",
+    --             pattern = "markdown",
+    --             callback = function(ev)
+    --                 vim.api.nvim_buf_create_user_command(ev.buf, "Peek", function(ctx)
+    --                     local peek = require "peek"
+    --                     if peek.is_open() then
+    --                         if ctx.bang then
+    --                             peek.close()
+    --                         end
+    --                         return
+    --                     end
+    --                     peek.open()
+    --                 end, { bang = true })
+    --             end,
+    --         })
+    --         return {
+    --             app = { "chromium", "--new-window" },
+    --         }
+    --     end,
+    -- },
 }
