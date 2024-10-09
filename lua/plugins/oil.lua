@@ -11,5 +11,5 @@ return {
     keys = {
         { "-", "<cmd>Oil<cr>", desc = "Open Oil" },
     },
-    enabled = false,
+    enabled = true,
 }
