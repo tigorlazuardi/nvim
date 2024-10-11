@@ -1,7 +1,7 @@
 return {
     "echasnovski/mini.nvim",
     version = false,
-    enabled = false,
+    enabled = true,
     opts = {
         windows = {
             preview = true,

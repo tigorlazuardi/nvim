@@ -1,5 +1,6 @@
 return {
     "stevearc/oil.nvim",
+    enabled = false,
     opts = function()
         -- helper function to parse output
         local function parse_output(proc)
