@@ -109,5 +109,4 @@ return {
             end,
         },
     },
-    enabled = true,
 }
