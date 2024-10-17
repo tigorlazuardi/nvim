@@ -1,5 +1,11 @@
 return {
     {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            indent = { disable = { "go" } },
+        },
+    },
+    {
         "maxandron/goplements.nvim",
         ft = "go",
         opts = {
