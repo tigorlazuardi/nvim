@@ -1,9 +1,50 @@
 return {
     {
-        "williamboman/mason.nvim",
-        opts = function(_, opts)
-            opts.ensure_installed = opts.ensure_installed or {}
-            vim.list_extend(opts.ensure_installed, { "nixpkgs-fmt", "nil" })
-        end,
+        "nvim-lspconfig",
+        opts = {
+            servers = {
+                nil_ls = {
+                    settings = {
+                        ["nil"] = {
+                            formatting = {
+                                command = "nixfmt",
+                            },
+                            nix = {
+                                flake = {
+                                    autoArchive = true,
+                                    autoEvalInputs = true,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+    {
+        "dundalek/lazy-lsp.nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
+        opts = {
+            prefer_local = true,
+            excluded_servers = {
+                "gopls", -- gopls likes to be double attached if enabled here.
+                "bazelrc-lsp",
+            },
+            preferred_servers = {
+                gitcommit = {},
+                sql = {},
+                nix = {
+                    "nil_ls",
+                },
+                typescript = {
+                    "tsserver",
+                },
+                proto = {
+                    "buf-language-server",
+                },
+                sh = {},
+                markdown = {},
+            },
+        },
     },
 }
