@@ -1,18 +1,36 @@
 return {
     {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            ensure_installed = {
+                "nix",
+                "css",
+                "bash",
+                "hyprlang",
+            },
+        },
+    },
+    {
         "nvim-lspconfig",
         opts = {
             servers = {
-                nil_ls = {
+                nixd = {
                     settings = {
-                        ["nil"] = {
-                            formatting = {
-                                command = "nixfmt",
+                        nixd = {
+                            nixpkgs = {
+                                expr = "import <nixpkgs> {}",
                             },
-                            nix = {
-                                flake = {
-                                    autoArchive = true,
-                                    autoEvalInputs = true,
+                            options = {
+                                nixos = {
+                                    expr = (function()
+                                        local flake_path = vim.fn.expand "$HOME/dotfiles"
+                                        local handle = io.popen "hostname"
+                                        local hostname = handle:read "*a"
+                                        handle:close()
+                                        hostname = string.gsub(hostname, "\n", "")
+                                        local expr = [[(builtins.getFlake "%s").nixosConfigurations.%s.options]]
+                                        return string.format(expr, flake_path, hostname)
+                                    end)(),
                                 },
                             },
                         },
@@ -29,12 +47,14 @@ return {
             excluded_servers = {
                 "gopls", -- gopls likes to be double attached if enabled here.
                 "bazelrc-lsp",
+                "nil_ls",
             },
             preferred_servers = {
                 gitcommit = {},
                 sql = {},
                 nix = {
-                    "nil_ls",
+                    -- "nil_ls",
+                    "nixd",
                 },
                 typescript = {
                     "tsserver",
