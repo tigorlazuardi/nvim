@@ -11,6 +11,14 @@ return {
         },
     },
     {
+        "conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                nix = { "nixfmt" },
+            },
+        },
+    },
+    {
         "nvim-lspconfig",
         opts = {
             servers = {
