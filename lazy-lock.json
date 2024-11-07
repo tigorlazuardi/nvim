@@ -84,7 +84,6 @@
   "rose-pine": { "branch": "main", "commit": "d396005db5bbd1d4ec7772a7c96c96f4c4802328" },
   "rustaceanvim": { "branch": "master", "commit": "047f9c9d8cd2861745eb9de6c1570ee0875aa795" },
   "silicon.lua": { "branch": "main", "commit": "f1387c8e2e69743899d6da6d4bd0e42be5ac5fa0" },
-  "smart-open.nvim": { "branch": "main", "commit": "7770b01ce4d551c143d7ec8589879320796621b9" },
   "snipe.nvim": { "branch": "main", "commit": "854a47c970413405361487c13e2b1e9aa9a3696e" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
