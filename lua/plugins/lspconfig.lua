@@ -1,5 +1,6 @@
 return {
     "nvim-lspconfig",
+    commit = "bc6ada4b0892b7f10852c0b8ca7209fd39a6d754",
     init = function()
         local keys = require("lazyvim.plugins.lsp.keymaps").get()
         keys[#keys + 1] = {
@@ -57,8 +58,8 @@ return {
                 end,
             },
             lua_ls = {
-                mason = false;
-            };
+                mason = false,
+            },
         },
     },
 }
