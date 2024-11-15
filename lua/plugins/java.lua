@@ -58,8 +58,10 @@ return {
                 end,
 
                 -- These depend on nvim-dap, but can additionally be disabled by setting false here.
-                dap = { hotcodereplace = "auto", config_overrides = {} },
-                dap_main = {},
+                dap = false,
+                -- dap = { hotcodereplace = "auto", config_overrides = {} },
+                dap_main = false,
+                -- dap_main = {},
                 test = true,
                 settings = {
                     java = {
@@ -140,47 +142,6 @@ return {
                                 },
                             },
                         }
-
-                        -- if opts.dap and LazyVim.has "nvim-dap" and mason_registry.is_installed "java-debug-adapter" then
-                        --     -- custom init for Java debugger
-                        --     require("jdtls").setup_dap(opts.dap)
-                        --     require("jdtls.dap").setup_dap_main_class_configs(opts.dap_main)
-                        --
-                        --     -- Java Test require Java debugger to work
-                        --     if opts.test and mason_registry.is_installed "java-test" then
-                        --         -- custom keymaps for Java test runner (not yet compatible with neotest)
-                        --         wk.add {
-                        --             {
-                        --                 mode = "n",
-                        --                 buffer = args.buf,
-                        --                 { "<leader>t", group = "test" },
-                        --                 {
-                        --                     "<leader>tt",
-                        --                     function()
-                        --                         require("jdtls.dap").test_class {
-                        --                             config_overrides = type(opts.test) ~= "boolean"
-                        --                                     and opts.test.config_overrides
-                        --                                 or nil,
-                        --                         }
-                        --                     end,
-                        --                     desc = "Run All Test",
-                        --                 },
-                        --                 {
-                        --                     "<leader>tr",
-                        --                     function()
-                        --                         require("jdtls.dap").test_nearest_method {
-                        --                             config_overrides = type(opts.test) ~= "boolean"
-                        --                                     and opts.test.config_overrides
-                        --                                 or nil,
-                        --                         }
-                        --                     end,
-                        --                     desc = "Run Nearest Test",
-                        --                 },
-                        --                 { "<leader>tT", require("jdtls.dap").pick_test, desc = "Run Test" },
-                        --             },
-                        --         }
-                        --     end
-                        -- end
 
                         -- User can set additional keymaps in opts.on_attach
                         if opts.on_attach then
