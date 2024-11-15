@@ -56,6 +56,7 @@ return {
                 "gopls", -- gopls likes to be double attached if enabled here.
                 "bazelrc-lsp",
                 "nil_ls",
+                "buf_ls",
             },
             preferred_servers = {
                 gitcommit = {},
@@ -67,9 +68,7 @@ return {
                 typescript = {
                     "tsserver",
                 },
-                proto = {
-                    "buf-language-server",
-                },
+                proto = {},
                 sh = {},
                 markdown = {},
             },
