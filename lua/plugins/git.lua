@@ -19,17 +19,7 @@ return {
                 mode = { "v" },
             },
         },
-        config = function()
-            -- optional: setup telescope before loading the extension
-            require("telescope").setup {
-                -- move this to the place where you call the telescope setup function
-                extensions = {
-                    advanced_git_search = {
-                        -- See Config
-                    },
-                },
-            }
-
+        init = function()
             require("telescope").load_extension "advanced_git_search"
         end,
         dependencies = {
@@ -41,6 +31,14 @@ return {
             -- optional: to replace the diff from fugitive with diffview.nvim
             -- (fugitive is still needed to open in browser)
             "sindrets/diffview.nvim",
+        },
+    },
+    {
+        "telescope.nvim",
+        opts = {
+            extensions = {
+                advanced_git_search = {},
+            },
         },
     },
 }
