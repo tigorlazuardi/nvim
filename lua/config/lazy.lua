@@ -56,3 +56,5 @@ require("lazy").setup {
         },
     },
 }
+
+require("lazyvim.util").get_root = vim.loop.cwd
