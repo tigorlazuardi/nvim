@@ -57,6 +57,7 @@ return {
                 "bazelrc-lsp",
                 "nil_ls",
                 "buf_ls",
+                "quick_lint_js",
             },
             preferred_servers = {
                 gitcommit = {},
@@ -65,9 +66,10 @@ return {
                     -- "nil_ls",
                     "nixd",
                 },
-                typescript = {
-                    "tsserver",
-                },
+                typescript = {},
+                javascript = {},
+                javascriptreact = {},
+                typescriptreact = {},
                 proto = {},
                 sh = {},
                 markdown = {},
