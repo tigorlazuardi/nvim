@@ -4,6 +4,7 @@ return {
         formatters_by_ft = {
             templ = { "templ" },
             typst = { "typstyle" },
+            lua = { "stylua" },
         },
     },
 }

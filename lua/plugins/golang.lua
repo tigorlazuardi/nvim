@@ -100,6 +100,10 @@ return {
         ft = "go",
     },
     {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    {
         "edolphin-ydf/goimpl.nvim",
         ft = "go",
         config = function()
