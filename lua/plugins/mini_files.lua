@@ -1,6 +1,6 @@
 return {
     {
-        "echasnovski/mini.nvim",
+        "echasnovski/mini.files",
         version = false,
         enabled = true,
         opts = {
@@ -9,8 +9,7 @@ return {
                 width_preview = 50,
             },
         },
-        config = function(_, opts)
-            require("mini.files").setup(opts)
+        init = function()
             local map_split = function(buf_id, lhs, direction)
                 local mf = require "mini.files"
                 local rhs = function()
