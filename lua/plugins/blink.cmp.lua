@@ -29,8 +29,8 @@ return {
                 draw = {
                     columns = {
                         { "kind_icon" },
-                        { "label", "label_description", gap = 1 },
-                        { "kind", gap = 1 },
+                        { "label", "label_description" },
+                        { "kind" },
                     },
                     components = {
                         kind_icon = {
@@ -44,8 +44,7 @@ return {
                                     return miniIcons.get("file", ctx.label)
                                 end
                                 if ctx.kind == "Copilot" then
-                                    local kind_icon, _, _ = require("mini.icons").get("os", "nixos")
-                                    return kind_icon
+                                    return ""
                                 end
                                 local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return kind_icon
