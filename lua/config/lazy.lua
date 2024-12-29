@@ -10,7 +10,7 @@ require("lazy").setup {
     git = {
         throttle = {
             enabled = true,
-            rate = 4,
+            rate = 16,
             duration = 2000,
         },
     },
