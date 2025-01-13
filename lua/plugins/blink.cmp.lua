@@ -99,6 +99,5 @@ return {
         keymap = {
             preset = "default",
         },
-        signature = { enabled = true },
     },
 }
