@@ -6,6 +6,14 @@ return {
             "nvim-treesitter/nvim-treesitter",
         },
         opts = {
+            strategies = {
+                chat = {
+                    adapter = "gemini",
+                },
+                inline = {
+                    adapter = "gemini",
+                },
+            },
             adapters = {
                 gemini = function()
                     return require("codecompanion.adapters").extend("gemini", {
@@ -21,5 +29,15 @@ return {
         cond = function()
             return os.getenv "GEMINI_API_KEY_FILE" ~= nil
         end,
+    },
+    {
+        "blink.cmp",
+        opts = {
+            sources = {
+                per_filetype = {
+                    codecompanion = { "codecompanion" },
+                },
+            },
+        },
     },
 }
