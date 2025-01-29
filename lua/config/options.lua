@@ -8,3 +8,5 @@ vim.opt.swapfile = false
 vim.defer_fn(function()
     vim.opt.title = true
 end, 100)
+
+vim.g.root_spec = { "cwd" }
