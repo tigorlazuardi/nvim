@@ -1,35 +1,27 @@
 return {
     {
-        "dgagn/diagflow.nvim",
-        event = { "LspAttach" },
-        opts = {
-            scope = "line",
-            show_sign = false,
-            show_borders = true,
-            text_align = "right",
-            max_width = 60,
-            format = function(diagnostic)
-                if diagnostic.source and #diagnostic.source > 0 then
-                    return string.format("[%s] %s: %s", diagnostic.source, diagnostic.code, diagnostic.message)
-                end
-                return diagnostic.message
-            end,
-        },
-        enabled = false,
-    },
-    {
         "rachartier/tiny-inline-diagnostic.nvim",
-        event = "LspAttach", -- Or `LspAttach`
         opts = {
+            preset = "powerline",
             options = {
+                show_source = true,
                 throttle = 0,
-                multilines = true,
+                multilines = {
+                    enabled = true,
+                    always_show = true,
+                },
+                multiple_diag_under_cursor = true,
                 enable_on_insert = true,
             },
         },
-        config = function(_, opts)
+        init = function()
             vim.diagnostic.config { virtual_text = false }
-            require("tiny-inline-diagnostic").setup(opts)
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("TiniInlineDiagnosticDisableVText", {}),
+                callback = function()
+                    vim.diagnostic.config { virtual_text = false }
+                end,
+            })
         end,
     },
 }
