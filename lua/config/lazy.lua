@@ -10,7 +10,7 @@ require("lazy").setup {
     concurrency = vim.uv.available_parallelism() * 2,
     defaults = {
         lazy = false,
-        version = "*", -- try installing the latest stable version for plugins that support semver
+        version = false, -- try installing the latest stable version for plugins that support semver
     },
     spec = {
         -- add LazyVim and import its plugins
