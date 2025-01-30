@@ -41,38 +41,38 @@ return {
             return os.getenv "GEMINI_API_KEY_FILE" ~= nil
         end,
     },
-    {
-        "milanglacier/minuet-ai.nvim",
-        init = load_api_keys,
-        opts = {
-            virtualtext = {
-                auto_trigger_ft = { "*" },
-                keymap = {
-                    accept = "<a-y>",
-                },
-            },
-            provider = "gemini",
-            provider_options = {
-                gemini = {
-                    optional = {
-                        generationConfig = {
-                            maxOutputTokens = 256,
-                        },
-                        safetySettings = {
-                            {
-                                -- HARM_CATEGORY_HATE_SPEECH,
-                                -- HARM_CATEGORY_HARASSMENT
-                                -- HARM_CATEGORY_SEXUALLY_EXPLICIT
-                                category = "HARM_CATEGORY_DANGEROUS_CONTENT",
-                                -- BLOCK_NONE
-                                threshold = "BLOCK_ONLY_HIGH",
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    },
+    -- {
+    --     "milanglacier/minuet-ai.nvim",
+    --     init = load_api_keys,
+    --     opts = {
+    --         virtualtext = {
+    --             auto_trigger_ft = { "*" },
+    --             keymap = {
+    --                 accept = "<a-y>",
+    --             },
+    --         },
+    --         provider = "gemini",
+    --         provider_options = {
+    --             gemini = {
+    --                 optional = {
+    --                     generationConfig = {
+    --                         maxOutputTokens = 256,
+    --                     },
+    --                     safetySettings = {
+    --                         {
+    --                             -- HARM_CATEGORY_HATE_SPEECH,
+    --                             -- HARM_CATEGORY_HARASSMENT
+    --                             -- HARM_CATEGORY_SEXUALLY_EXPLICIT
+    --                             category = "HARM_CATEGORY_DANGEROUS_CONTENT",
+    --                             -- BLOCK_NONE
+    --                             threshold = "BLOCK_ONLY_HIGH",
+    --                         },
+    --                     },
+    --                 },
+    --             },
+    --         },
+    --     },
+    -- },
     {
         "blink.cmp",
         opts = function(_, opts)
