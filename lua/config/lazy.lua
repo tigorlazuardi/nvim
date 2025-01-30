@@ -7,13 +7,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup {
-    git = {
-        throttle = {
-            enabled = true,
-            rate = 16,
-            duration = 2000,
-        },
-    },
+    concurrency = vim.uv.available_parallelism() * 2,
     spec = {
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
