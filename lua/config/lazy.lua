@@ -22,7 +22,6 @@ require("lazy").setup {
         { import = "lazyvim.plugins.extras.coding.yanky" },
         -- { import = "lazyvim.plugins.extras.coding.luasnip" },
         { import = "lazyvim.plugins.extras.coding.mini-surround" },
-        { import = "lazyvim.plugins.extras.formatting.prettier" },
 
         { import = "lazyvim.plugins.extras.dap.core" },
         { import = "lazyvim.plugins.extras.dap.nlua" },
@@ -55,5 +54,3 @@ require("lazy").setup {
         },
     },
 }
-
-require("lazyvim.util").get_root = vim.loop.cwd
