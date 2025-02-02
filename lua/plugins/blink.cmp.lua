@@ -6,6 +6,9 @@ return {
     opts = {
         snippets = { preset = "luasnip" },
         completion = {
+            ghost_text = {
+                enabled = false,
+            },
             documentation = {
                 window = {
                     border = "rounded",

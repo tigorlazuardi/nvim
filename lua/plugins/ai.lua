@@ -19,10 +19,10 @@ return {
         opts = {
             strategies = {
                 chat = {
-                    adapter = "copilot",
+                    adapter = vim.env.OLLAMA_CODE_INSTRUCTION_MODEL ~= nil and "ollama" or "copilot",
                 },
                 inline = {
-                    adapter = "copilot",
+                    adapter = vim.env.OLLAMA_CODE_INSTRUCTION_MODEL ~= nil and "ollama" or "copilot",
                 },
             },
             adapters = {
@@ -35,57 +35,32 @@ return {
                         },
                     })
                 end,
+                ollama = function()
+                    local model = assert(vim.env.OLLAMA_CODE_INSTRUCTION_MODEL)
+                    return require("codecompanion.adapters").extend("ollama", {
+                        name = model,
+                        schema = {
+                            model = {
+                                default = model,
+                            },
+                            num_ctx = { default = 1024 * 16 },
+                            num_predict = {
+                                default = -1,
+                            },
+                        },
+                    })
+                end,
             },
         },
-        cond = function()
-            return os.getenv "GEMINI_API_KEY_FILE" ~= nil
-        end,
     },
-    -- {
-    --     "milanglacier/minuet-ai.nvim",
-    --     init = load_api_keys,
-    --     opts = {
-    --         virtualtext = {
-    --             auto_trigger_ft = { "*" },
-    --             keymap = {
-    --                 accept = "<a-y>",
-    --             },
-    --         },
-    --         provider = "gemini",
-    --         provider_options = {
-    --             gemini = {
-    --                 optional = {
-    --                     generationConfig = {
-    --                         maxOutputTokens = 256,
-    --                     },
-    --                     safetySettings = {
-    --                         {
-    --                             -- HARM_CATEGORY_HATE_SPEECH,
-    --                             -- HARM_CATEGORY_HARASSMENT
-    --                             -- HARM_CATEGORY_SEXUALLY_EXPLICIT
-    --                             category = "HARM_CATEGORY_DANGEROUS_CONTENT",
-    --                             -- BLOCK_NONE
-    --                             threshold = "BLOCK_ONLY_HIGH",
-    --                         },
-    --                     },
-    --                 },
-    --             },
-    --         },
-    --     },
-    -- },
     {
         "blink.cmp",
-        opts = function(_, opts)
-            if pcall(require, "codecompanion") then
-                opts = vim.tbl_deep_extend("force", opts or {}, {
-                    sources = {
-                        per_filetype = {
-                            codecompanion = { "codecompanion" },
-                        },
-                    },
-                })
-            end
-            return opts
-        end,
+        opts = {
+            sources = {
+                per_filetype = {
+                    codecompanion = { "codecompanion" },
+                },
+            },
+        },
     },
 }

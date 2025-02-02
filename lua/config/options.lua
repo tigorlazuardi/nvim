@@ -10,3 +10,5 @@ vim.defer_fn(function()
 end, 100)
 
 vim.g.root_spec = { "cwd" }
+
+vim.g.ai_cmp = false
