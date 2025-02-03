@@ -19,10 +19,10 @@ return {
         opts = {
             strategies = {
                 chat = {
-                    adapter = vim.env.OLLAMA_CODE_INSTRUCTION_MODEL ~= nil and "ollama" or "copilot",
+                    adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
                 },
                 inline = {
-                    adapter = vim.env.OLLAMA_CODE_INSTRUCTION_MODEL ~= nil and "ollama" or "copilot",
+                    adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
                 },
             },
             adapters = {
@@ -36,7 +36,7 @@ return {
                     })
                 end,
                 ollama = function()
-                    local model = assert(vim.env.OLLAMA_CODE_INSTRUCTION_MODEL)
+                    local model = assert(vim.env.OLLAMA_MODEL)
                     return require("codecompanion.adapters").extend("ollama", {
                         name = model,
                         schema = {
