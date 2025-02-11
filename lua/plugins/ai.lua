@@ -43,7 +43,7 @@ return {
                             model = {
                                 default = model,
                             },
-                            num_ctx = { default = 1024 * 8 },
+                            num_ctx = { default = 1024 * 12 },
                             num_predict = {
                                 default = -1,
                             },
