@@ -15,14 +15,33 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
-        init = load_api_keys,
+        init = function()
+            load_api_keys()
+            vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+            vim.keymap.set(
+                { "n", "v" },
+                "<LocalLeader>a",
+                "<cmd>CodeCompanionChat Toggle<cr>",
+                { noremap = true, silent = true }
+            )
+            vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+            -- Expand 'cc' into 'CodeCompanion' in the command line
+            vim.cmd [[cab cc CodeCompanion]]
+        end,
         opts = {
             strategies = {
                 chat = {
-                    adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
+                    -- adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
+                    adapter = "copilot",
                 },
                 inline = {
-                    adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
+                    -- adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
+                    adapter = "copilot",
+                },
+                agent = {
+                    -- adapter = vim.env.OLLAMA_MODEL ~= nil and "ollama" or "copilot",
+                    adapter = "copilot",
                 },
             },
             adapters = {
