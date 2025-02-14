@@ -7,4 +7,5 @@ return {
         ring = { storage = "sqlite" },
         highlight = { timer = 150 },
     },
+    cond = not vim.g.vscode,
 }

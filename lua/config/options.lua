@@ -12,3 +12,8 @@ end, 100)
 vim.g.root_spec = { "cwd" }
 
 vim.g.ai_cmp = false
+
+if vim.g.vscode then
+    vim.o.cmdheight = 3 -- this is the new line I added
+    return
+end
