@@ -26,3 +26,11 @@ vim.filetype.add {
         gotmpl = "gotmpl",
     },
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("DisableDiagnosticFiletypesByDefault", {}),
+    pattern = { "markdown", "dockerfile" },
+    callback = function(ctx)
+        vim.diagnostic.enable(false, { bufnr = ctx.buf })
+    end,
+})
