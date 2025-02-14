@@ -23,5 +23,6 @@ opt.tabstop = 4
 vim.filetype.add {
     extension = {
         templ = "templ",
+        gotmpl = "gotmpl",
     },
 }

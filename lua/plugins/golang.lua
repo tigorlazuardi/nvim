@@ -15,6 +15,11 @@ return {
         },
     },
     {
+        "jeniasaigak/goplay.nvim",
+        ft = "go",
+        opts = {},
+    },
+    {
         "neovim/nvim-lspconfig",
         opts = {
             servers = {
